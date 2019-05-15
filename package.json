@@ -1,6 +1,6 @@
 {
   "name": "vue95-ui",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "private": false,
   "main": "lib/index.js",
   "style": "package/index.css",
