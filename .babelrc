@@ -3,7 +3,8 @@
     [
       "component",
       {
-        "libraryName": "vue95-ui"
+        "libraryName": "vue95-ui",
+        "libDir": "components",
       }
     ]
   ]
