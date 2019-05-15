@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    [
+      "component",
+      {
+        "libraryName": "vue95-ui"
+      }
+    ]
+  ]
+}
