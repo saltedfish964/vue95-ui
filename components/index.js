@@ -3,6 +3,8 @@ import AppBar95 from './AppBar95/index';
 import Bar95 from './Bar95/index';
 import ToolBar95 from './ToolBar95/index';
 import Button95 from './Button95/index';
+import Col95 from './Col95/index';
+import Row95 from './Row95/index';
 
 const components = [
   Anchor95,
@@ -10,6 +12,8 @@ const components = [
   Bar95,
   ToolBar95,
   Button95,
+  Col95,
+  Row95,
 ];
 
 function install (Vue) {
@@ -29,6 +33,8 @@ export {
   Bar95,
   ToolBar95,
   Button95,
+  Col95,
+  Row95,
 };
 
 export default {
@@ -38,5 +44,7 @@ export default {
   Bar95,
   ToolBar95,
   Button95,
+  Col95,
+  Row95,
 };
 
