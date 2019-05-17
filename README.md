@@ -4,9 +4,7 @@
 
 Vue95-UI 是一套为 Vue 应用使用的 Windows 95 风格的 UI 组件库。❤
 
-:::tip
-灵感来自于 Github 上的 [arturbien/React95](https://github.com/arturbien/React95) 项目。
-:::
+> 灵感来自于 Github 上的 [arturbien/React95](https://github.com/arturbien/React95) 项目。
 
 ![](https://ws1.sinaimg.cn/large/006cROD4ly1g347zgwgbgj30wl0cb0uh.jpg)
 
@@ -18,9 +16,7 @@ npm install vue95-ui
 npm install less less-loader -D
 ```
 
-:::tip
-需要安装 `less` 和 `less-loader`
-:::
+> 需要安装 `less` 和 `less-loader`
 
 # 快速上手
 
