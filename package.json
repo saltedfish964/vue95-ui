@@ -1,6 +1,6 @@
 {
   "name": "vue95-ui",
-  "version": "0.0.11",
+  "version": "0.0.13",
   "private": false,
   "main": "components/index.js",
   "style": "package/index.css",
@@ -12,6 +12,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "deploy": "bash deploy.sh",
     "lib": "vue-cli-service build --target lib --name index --dest package components/index.js"
   },
   "dependencies": {
@@ -28,7 +31,8 @@
     "eslint-plugin-vue": "^5.0.0",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
-    "vue-template-compiler": "^2.5.21"
+    "vue-template-compiler": "^2.5.21",
+    "vuepress": "^0.14.11"
   },
   "eslintConfig": {
     "root": true,
