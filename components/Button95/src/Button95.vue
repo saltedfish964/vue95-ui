@@ -2,7 +2,7 @@
   <button
     :disabled="disabled"
     :class="[
-      type ? 'button-95-' + type : '',
+      'button-95-default',
       {
         'button-95-disable': disabled,
         'button-95-active': active,
