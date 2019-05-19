@@ -7,6 +7,9 @@ import Col95 from './Col95/index';
 import Row95 from './Row95/index';
 import List95 from './List95/index';
 import ListItem95 from './ListItem95/index';
+import CheckBox95 from './CheckBox95/index';
+import Cutout95 from './Cutout95/index';
+import TextField95 from './TextField95/index';
 
 const components = [
   Anchor95,
@@ -18,6 +21,9 @@ const components = [
   Row95,
   List95,
   ListItem95,
+  CheckBox95,
+  Cutout95,
+  TextField95,
 ];
 
 function install (Vue) {
@@ -41,6 +47,9 @@ export {
   Row95,
   List95,
   ListItem95,
+  CheckBox95,
+  Cutout95,
+  TextField95,
 };
 
 export default {
@@ -54,5 +63,8 @@ export default {
   Row95,
   List95,
   ListItem95,
+  CheckBox95,
+  Cutout95,
+  TextField95,
 };
 

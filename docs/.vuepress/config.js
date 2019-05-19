@@ -38,6 +38,7 @@ module.exports = {
           'views/component/bar',
           'views/component/list',
           'views/component/listitem',
+          'views/component/textfiled',
         ]
       },
     ]

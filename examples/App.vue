@@ -1,64 +1,14 @@
 <template>
   <div id="app">
+    <Cutout95>156156561</Cutout95>
+    <br>
+    <Cutout95 :shadow="true">156156561</Cutout95>
+    <br>
 
-    <Row95 style="margin-bottom: 20px;">
-      <Col95 span="24" style="background: #99a9bf;height: 36px;border-radius: 4px;"></Col95>
-    </Row95>
-
-    <Row95 style="margin-bottom: 20px;">
-      <Col95 span="12" style="background: #d3dce6;height: 36px;border-radius: 4px;"></Col95>
-      <Col95 span="12" style="background: #e5e9f2;height: 36px;border-radius: 4px;"></Col95>
-    </Row95>
-
-    <Row95 style="margin-bottom: 20px;">
-      <Col95 span="8" style="background: #d3dce6;height: 36px;border-radius: 4px;"></Col95>
-      <Col95 span="8" style="background: #e5e9f2;height: 36px;border-radius: 4px;"></Col95>
-      <Col95 span="8" style="background: #d3dce6;height: 36px;border-radius: 4px;"></Col95>
-    </Row95>
-
-    <Row95 style="margin-bottom: 20px;">
-      <Col95 span="6" style="background: #d3dce6;height: 36px;border-radius: 4px;"></Col95>
-      <Col95 span="6" style="background: #e5e9f2;height: 36px;border-radius: 4px;"></Col95>
-      <Col95 span="6" style="background: #d3dce6;height: 36px;border-radius: 4px;"></Col95>
-      <Col95 span="6" style="background: #e5e9f2;height: 36px;border-radius: 4px;"></Col95>
-    </Row95>
-
-    <Row95 style="margin-bottom: 20px;">
-      <Col95 span="4" style="background: #d3dce6;height: 36px;border-radius: 4px;"></Col95>
-      <Col95 span="4" style="background: #e5e9f2;height: 36px;border-radius: 4px;"></Col95>
-      <Col95 span="4" style="background: #d3dce6;height: 36px;border-radius: 4px;"></Col95>
-      <Col95 span="4" style="background: #e5e9f2;height: 36px;border-radius: 4px;"></Col95>
-      <Col95 span="4" style="background: #d3dce6;height: 36px;border-radius: 4px;"></Col95>
-      <Col95 span="4" style="background: #e5e9f2;height: 36px;border-radius: 4px;"></Col95>
-    </Row95>
-
-    <List95>
-      <ListItem95 link="https://du-dudu.gitee.io/selfnavigation/">Photos</ListItem95>
-      <ListItem95>Videos</ListItem95>
-      <ListItem95>Other</ListItem95>
-    </List95>
-
-    <List95>
-      <ListItem95 square>😍</ListItem95>
-      <ListItem95 square>😝</ListItem95>
-      <ListItem95 square link="https://du-dudu.gitee.io/selfnavigation/">🍕</ListItem95>
-    </List95>
-
-    <List95 inline>
-      <ListItem95 square disabled>🌿</ListItem95>
-      <Bar95 />
-      <ListItem95>Tackle</ListItem95>
-      <ListItem95>Growl</ListItem95>
-      <ListItem95 disabled>Razor Leaf</ListItem95>
-    </List95>
-
-    <div>
-      <List95 fullWidth>
-      <ListItem95 disabled>Photos</ListItem95>
-      <ListItem95>Videos</ListItem95>
-      <ListItem95>Other</ListItem95>
-    </List95>
-    </div>
+    <TextField95 v-model="msg" :shadow="true" :width="200"></TextField95>
+    <button95 @click="resetMsg">Reset</button95>
+    <TextField95 v-model="msg" :shadow="false"></TextField95>
+    <button95 @click="resetMsg">Reset</button95>
   </div>
 </template>
 
@@ -66,8 +16,23 @@
 
 export default {
   name: "app",
+
+  data() {
+    return {
+      msg: 'Hello World!'
+    }
+  },
+
+  methods: {
+    resetMsg() {
+      this.msg = '';
+    }
+  }
 };
 </script>
 
 <style>
+body {
+  background: #ced0cf;
+}
 </style>
