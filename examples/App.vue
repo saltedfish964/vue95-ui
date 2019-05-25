@@ -9,6 +9,9 @@
     <button95 @click="resetMsg">Reset</button95>
     <TextField95 v-model="msg" :shadow="false"></TextField95>
     <button95 @click="resetMsg">Reset</button95>
+
+    <CheckBox95 disabled :checked="isChecked" @change="changeChecked" v-model="msg">Steak🍕</CheckBox95>
+    <CheckBox95 :checked="isChecked" @change="changeChecked" v-model="msg">Steak🍕</CheckBox95>
   </div>
 </template>
 
@@ -19,13 +22,17 @@ export default {
 
   data() {
     return {
-      msg: 'Hello World!'
+      msg: 'Hello World!',
+      isChecked: false,
     }
   },
 
   methods: {
     resetMsg() {
       this.msg = '';
+    },
+    changeChecked(evt) {
+      this.isChecked = evt.target.checked;
     }
   }
 };

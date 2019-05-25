@@ -39,6 +39,7 @@ module.exports = {
           'views/component/list',
           'views/component/listitem',
           'views/component/textfiled',
+          'views/component/checkbox',
         ]
       },
     ]
