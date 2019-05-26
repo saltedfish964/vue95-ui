@@ -6,10 +6,10 @@
     <slot></slot>
     <div
       :class="{
-        'cutout': !checked,
-        'checked': checked,
-        'cutout-disabled': disabled && !checked,
-        'checked-disabled': disabled && checked,
+        'cutout': !isCheck,
+        'checked': isCheck,
+        'cutout-disabled': disabled && !isCheck,
+        'checked-disabled': disabled && isCheck,
       }"
     ></div>
     <input
@@ -26,17 +26,24 @@
 <script>
 export default {
   name: 'CheckBox95',
+  model: {
+    prop: 'checked',
+    event: 'change'
+  },
   props: {
-    checked: {
-      type: Boolean,
-      default: false,
-    },
-    value: String,
+    checked: Boolean,
+    value: [String, Boolean, Number],
     disabled: Boolean,
+  },
+  data() {
+    return {
+      isCheck: this.checked,
+    }
   },
   methods: {
     changeCheckValue(evt) {
-      this.$emit('change', evt);
+      this.isCheck = evt.target.checked;
+      this.$emit('change', evt.target.checked);
     },
   },
 }
