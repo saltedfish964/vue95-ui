@@ -1,52 +1,148 @@
 <template>
-  <label
-    class="label"
-    :class="{'disabled': disabled}"
-  >
+  <label class="label" :class="{'disabled': isDisabled}">
     <slot></slot>
+    <template v-if="!$slots.default">{{label}}</template>
     <div
       :class="{
-        'cutout': !isCheck,
-        'checked': isCheck,
-        'cutout-disabled': disabled && !isCheck,
-        'checked-disabled': disabled && isCheck,
+        'cutout': !isChecked,
+        'checked': isChecked,
+        'cutout-disabled': isDisabled && !isChecked,
+        'checked-disabled': isDisabled && isChecked,
       }"
     ></div>
     <input
-      :value="value"
-      :disabled="disabled"
-      :checked="checked"
-      @change="changeCheckValue($event)"
-      class="input"
       type="checkbox"
+      :value="label"
+      v-model="model"
+      :disabled="isDisabled"
+      @change="handleChange"
+      class="input"
     >
   </label>
 </template>
 
 <script>
 export default {
-  name: 'CheckBox95',
-  model: {
-    prop: 'checked',
-    event: 'change'
-  },
+  name: "CheckBox95",
   props: {
-    checked: Boolean,
-    value: [String, Boolean, Number],
+    value: {},
+    label: {},
     disabled: Boolean,
+    checked: Boolean
   },
+
   data() {
     return {
-      isCheck: this.checked,
+      checkboxGroup: null,
+      isLimitExceeded: false,
+      selfModel: false
+    };
+  },
+
+  created() {
+    this.checked && this.addToStore();
+  },
+
+  computed: {
+    model: {
+      get() {
+        return this.isGroup
+          ? this.store
+          : this.value !== undefined
+          ? this.value
+          : this.selfModel;
+      },
+
+      set(val) {
+        if (this.isGroup) {
+          this.isLimitExceeded = false;
+          this.checkboxGroup.min !== undefined &&
+            val.length < this.checkboxGroup.min &&
+            (this.isLimitExceeded = true);
+
+          this.checkboxGroup.max !== undefined &&
+            val.length > this.checkboxGroup.max &&
+            (this.isLimitExceeded = true);
+
+          this.isLimitExceeded === false &&
+            this.dispatch("CheckboxGroup95", "input", [val]);
+        } else {
+          this.$emit("input", val);
+          this.selfModel = val;
+        }
+      }
+    },
+
+    isDisabled() {
+      return this.isGroup
+        ? this.checkboxGroup.disabled || this.disabled
+        : this.disabled;
+    },
+
+    isGroup() {
+      let parent = this.$parent;
+      while (parent) {
+        if (parent.$options._componentTag !== "CheckboxGroup95") {
+          parent = parent.$parent;
+        } else {
+          // eslint-disable-next-line
+          this.checkboxGroup = parent;
+          return true;
+        }
+      }
+      return false;
+    },
+
+    isChecked() {
+      return {}.toString.call(this.model) === "[object Boolean]"
+        ? this.model
+        : Array.isArray(this.model)
+        ? this.model.indexOf(this.label) > -1
+        : this.model === this.trueLabel;
+    },
+
+    store() {
+      return this.checkboxGroup ? this.checkboxGroup.value : this.value;
     }
   },
+
   methods: {
-    changeCheckValue(evt) {
-      this.isCheck = evt.target.checked;
-      this.$emit('change', evt.target.checked);
+    dispatch(componentName, eventName, params) {
+      var parent = this.$parent || this.$root;
+      var name = parent.$options._componentTag;
+
+      while (parent && (!name || name !== componentName)) {
+        parent = parent.$parent;
+
+        if (parent) {
+          name = parent.$options._componentTag;
+        }
+      }
+      if (parent) {
+        parent.$emit.apply(parent, [eventName].concat(params));
+      }
     },
-  },
-}
+
+    handleChange(ev) {
+      if (this.isLimitExceeded) return;
+      let value = ev.target.checked ? true : false;
+      this.$emit("change", value, ev);
+      this.$nextTick(() => {
+        if (this.isGroup) {
+          this.dispatch("CheckboxGroup95", "change", [this.checkboxGroup.value]);
+        }
+      });
+    },
+
+    addToStore() {
+      if (Array.isArray(this.model) && this.model.indexOf(this.label) === -1) {
+        this.model.push(this.label);
+      } else {
+        this.model = true;
+      }
+    }
+  }
+};
 </script>
 
 <style lang="less" scoped>

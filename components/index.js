@@ -10,6 +10,7 @@ import ListItem95 from './ListItem95/index';
 import CheckBox95 from './CheckBox95/index';
 import Cutout95 from './Cutout95/index';
 import TextField95 from './TextField95/index';
+import CheckboxGroup95 from './CheckboxGroup95/index';
 
 const components = [
   Anchor95,
@@ -24,6 +25,7 @@ const components = [
   CheckBox95,
   Cutout95,
   TextField95,
+  CheckboxGroup95,
 ];
 
 function install (Vue) {
@@ -50,6 +52,7 @@ export {
   CheckBox95,
   Cutout95,
   TextField95,
+  CheckboxGroup95,
 };
 
 export default {
@@ -66,5 +69,6 @@ export default {
   CheckBox95,
   Cutout95,
   TextField95,
+  CheckboxGroup95,
 };
 
