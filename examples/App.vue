@@ -3,7 +3,11 @@
     <br>
     <Cutout95>156156561</Cutout95>
     <br>
-    <Cutout95 :shadow="true">156156561</Cutout95>
+    <Window95>
+      <WindowContent95>
+        <Cutout95 class="mycutout" :shadow="true">156156561</Cutout95>
+      </WindowContent95>
+    </Window95>
     <br>
   </div>
 </template>
@@ -22,6 +26,11 @@ export default {
 <style>
 body {
   background: #ced0cf;
+}
+
+.mycutout {
+  width: 200px;
+  height: 300px;
 }
 
 #app {

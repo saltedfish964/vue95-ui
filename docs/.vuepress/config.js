@@ -40,6 +40,7 @@ module.exports = {
           'views/component/listitem',
           'views/component/textfiled',
           'views/component/checkbox',
+          'views/component/cutout',
         ]
       },
     ]
