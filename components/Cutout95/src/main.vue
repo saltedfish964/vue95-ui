@@ -25,7 +25,6 @@ export default {
   border-top-color: #888c8f;
   border-right-color: #ffffff;
   border-bottom-color: #ffffff;
-  background: #ffffff;
   &:before {
     position: absolute;
     left: 0;
@@ -43,6 +42,7 @@ export default {
     pointer-events: none;
   }
 }
+
 .shadow {
   position: relative;
   box-sizing: border-box;
